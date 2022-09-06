@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <ion-img src="/assets/icon/logo.png"></ion-img>
+      </ion-avatar>
+    </ion-buttons>
+
+    <ion-title class= "title">Te Llevo!</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+  
+
+  <ion-content>
+    <ion-card class="card">
+      <ion-card-header>
+        <ion-card-subtitle style="color: rgb(179, 179, 179);;">Unete a nuestra comunidad</ion-card-subtitle>
+        <ion-card-title class= "tit">Registra tus datos</ion-card-title>
+      </ion-card-header>
+
+    <form #formularioRegistro= "ngForm" (ngSubmit)= "onSubmit()" class= "formularioReg"> 
+    
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" placeholder="Ingrese Nombre"
+                  name="nombre" [(ngModel)]="usuario.nombre" 
+                  required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellidos</ion-label>
+        <ion-input type="text" placeholder="Ingrese Apellidos"
+                  name="apellidos" [(ngModel)]="usuario.apellidos" 
+                  required>
+        </ion-input>
+      </ion-item>      
+      
+      <ion-item>
+        <ion-label position= "floating">Correo Electónico</ion-label>
+        <ion-input  type="email" placeholder="Ingrese correo"
+                  name="email" [(ngModel)]="usuario.email"
+                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                  required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input  type="password" placeholder="Ingrese Cotraseña"
+                  name="password" [(ngModel)]="usuario.password"
+                  required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Confirmar Contraseña</ion-label>
+        <ion-input  type="password" placeholder="Ingrese Cotraseña"
+                  name="conPassword" [(ngModel)]="usuario.conPassword"
+                  required>
+        </ion-input>
+      </ion-item>
+
+      <ion-button [disabled]="formularioRegistro.invalid" 
+                    type="submit" expand="block"
+                    (click)="go()">
+          Ingresar
+        </ion-button>
+
+        <ion-button href="inicio" expand="block" fill="outline"
+                    color="dark">
+          Ya tengo cuenta
+        </ion-button>
+
+    </form>
+  </ion-card>
+
+  </ion-content>
+
